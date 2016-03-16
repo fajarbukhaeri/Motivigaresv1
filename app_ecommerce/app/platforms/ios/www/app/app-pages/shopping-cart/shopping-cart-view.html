@@ -1,0 +1,64 @@
+  <!-- define page -->
+  <ons-page id="cart" ng-controller="ShoppingCartCtrl">
+  <ons-toolbar class="top-toolbar-bg-dark">
+    <div class="left heading"><ons-back-button>Shopping Cart</ons-back-button></div>
+  </ons-toolbar>
+  <!-- Product List --> 
+  <ons-list class="shopping-cart-view">
+    <ons-list-item class="list-item show-opacity" modifier="tappable" ng-repeat="product in cartProducts" ng-show="!isEmpty">
+      <ons-row ng-click="cartItems[$index].option_state = !cartItems[$index].option_state">
+        <ons-col width="40px">
+        <img ng-src="{{url}}{{toJSON(product.images)}}" class="product-image">
+        </ons-col>
+        <ons-col class="right-side">
+          <p class="product-name">
+            {{product.quantity}} x {{product.name}}
+          </p>
+          <b class="font-size-13">{{product.spec_title != '' ? product.spec_title + ": " + product.spec_value : ""}}</b>
+          <span class="price">{{item.new_price | currency: currencyType }}</span>
+        </ons-col>
+      </ons-row>
+   
+      <!-- open manage cart item --> 
+      <ons-row class="list-item-action" ng-show="cartItems[$index].option_state">
+        <ons-col class="count float-left">
+          <ons-icon icon="ion-android-add" class="icon" ng-click="increaseQuantity_tap(cartItems[$index])"></ons-icon>
+          <span>{{cartItems[$index].quantity}}</span>
+          <ons-icon class="icon" ng-click="decreaseQuantity_tap(cartItems[$index])" icon="ion-android-remove"></ons-icon>
+        </ons-col>
+        <ons-col class="remove-icon float-right">
+          <ons-icon icon="ion-ios-eye" class="icon" ng-click="viewProduct_tap(product.id,cartItems[$index].spec_value)"></ons-icon>
+          <ons-icon icon="ion-android-delete" class="icon remove-item" ng-click="removeItem_tap(cartItems[$index], $index)"></ons-icon>
+        </ons-col>
+      </ons-row>
+
+      <ons-row class="order-summary">
+        <ons-col>Tax: </ons-col>
+        <ons-col class="float-right">
+          {{product.tax_rate + "%"}}
+        </ons-col>
+      </ons-row>
+      <ons-row class="order-summary">
+        <ons-col class="float-left">Sub-Total:</ons-col>
+        <ons-col class="float-right">{{getSubTotal($index) | currency: currencyType}}</ons-col>
+      </ons-row>
+  </ons-list-item>
+
+  <!-- total price -->
+  <ons-list-item class="list-item remove-border-bottom" ng-show="!(countCartProducts() == 0 ? true : false)">
+    <ons-row>
+      <ons-col width="100%">
+          <span class="btn btn-default col" ng-click="viewCheckOut_tap()"><ons-icon icon="ion-android-arrow-forward"></ons-icon>Proceed to Checkout</span>
+        </ons-col>
+      </ons-row>
+  </ons-list-item>
+
+  <ons-list-item ng-show="(countCartProducts() == 0 ? true : false)" class="remove-padding col">
+    <ons-row>
+      <ons-col width="100%">
+        <p class="col empty-cart"><ons-icon icon="ion-information-circled" class="icon"></ons-icon> Your cart is empty!</p>
+      </ons-col>
+    </ons-row>
+  </ons-list-item>
+</ons-list>
+</ons-page>

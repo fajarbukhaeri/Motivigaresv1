@@ -1,0 +1,34 @@
+<div ng-include="'app/ang/components/navbar/navbar.html'"></div>
+<div class="page_content col-md-7 col-lg-7 col-sm-7 col-xs-12 content-nav">
+	<div class="panel panel-default">
+	  <div class="panel-body">
+	  	<a href=""><i ng-click="goTo('products-spec-list')" class="fa fa-arrow-left"></i></a>
+	  	<a href="/#/products-spec-edit"><i class="fa fa-plus pull-right"></i></a>
+	  </div>
+	</div>
+</div>
+
+<div class="page_content col-md-7 col-lg-7 col-sm-7 col-xs-12" ng-controller="ProductsSpecEditCtrl">
+	<div class="panel panel-default">
+	  <div class="panel-heading">Add/Edit Specification</div>
+	  <div class="panel-body">
+	  	<form class="form-group-sm" ng-submit="save()">
+		  <div class="form-group col-md-12">
+		    <label>Title</label>
+		    <input type="text" class="form-control" ng-model="spec.title">
+		  </div>
+		  <div class="form-group col-md-12">
+		    <label>Value</label>
+		    <textarea class="form-control" ng-model="spec.values"></textarea>
+		    <p>Seperate each value with ","</p>
+		  </div>
+		  <hr class="width-100">
+		  <div class="col-xs-12">
+		  	<button type="submit" class="btn btn-success">Save Changes</button>
+		  	<div data-animation="am-fade-and-slide-top" data-template="app/ang/products-spec/delete-modal.tpl.html" bs-modal="modal" ng-show="editMode" class="btn btn-link pull-right">Delete</div>
+		  </div>
+		  	
+		</form>
+	  </div>
+	</div>
+</div>

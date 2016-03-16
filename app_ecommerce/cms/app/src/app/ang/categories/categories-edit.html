@@ -1,0 +1,33 @@
+<div ng-include="'app/ang/components/navbar/navbar.html'"></div>
+<div class="page_content col-md-7 col-lg-7 col-sm-7 col-xs-12 content-nav">
+	<div class="panel panel-default">
+	  <div class="panel-body">
+	  	<a href=""><i ng-click="goTo('categories-list')" class="fa fa-arrow-left"></i></a>
+	  	<a href="/#/categories-edit"><i class="fa fa-plus pull-right"></i></a>
+	  </div>
+	</div>
+</div>
+<div class="page_content col-md-7 col-lg-7 col-sm-7 col-xs-12" ng-controller="CategoriesEditCtrl">
+	<div class="panel panel-default">
+	  <div class="panel-heading">Add/View/Edit Category</div>
+	  <div class="panel-body">
+	  	
+
+	  	<form class="form-group-sm" ng-submit="save()">
+		  <div class="form-group col-md-12">
+		    <label>Name</label>
+		    <input class="form-control" type="text" ng-model="category.name" />
+		  </div>
+		   <div class="form-group col-md-12">
+		    <label>Description</label>
+		    <input class="form-control" type="text"  ng-model="category.description"/>
+		  </div>
+		  <hr class="width-100">
+		  <div class="col-xs-12">
+		  	<button type="submit" class="btn btn-success">Save Changes</button>
+		  	<div ng-show="editMode" class="btn btn-link pull-right" ng-click="remove()">Delete</div>	
+		  </div>
+		</form>
+	  </div>
+	</div>
+</div>

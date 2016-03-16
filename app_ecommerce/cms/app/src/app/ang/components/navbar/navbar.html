@@ -1,0 +1,13 @@
+<div class="list-group navigation col-lg-2 col-md-2 col-sm-2 col-xs-12" ng-controller="NavbarCtrl">
+  <a href="" class="list-group-item active">
+    Menu
+  </a>
+  <a ng-click="goTo('products-list')" class="list-group-item"><i class="fa fa-list-alt"></i> Products</a>
+  <a ng-click="goTo('products-spec-list')" href="" class="list-group-item"><i class="fa fa-list-alt"></i> Product Specfications</a>
+  <a ng-click="goTo('shipping-list')" href="" class="list-group-item"><i class="fa fa-truck"></i> Shipping Classes</a>
+  <a ng-click="goTo('categories-list')" class="list-group-item"><i class="fa fa-folder-o"></i> Categories</a>
+  <a ng-click="goTo('orders-list')" class="list-group-item"><i class="fa fa-cart-arrow-down"></i> Orders</a>
+  <a ng-click="goTo('setting')" class="list-group-item"><i class="fa fa-user"></i> Setting</a>
+  <!--<a ng-click="goTo('products-spec-list')" href="" class="list-group-item"><i class="fa fa-list-alt"></i> Import WooComerce</a>-->
+  <a ng-click="logout()" class="list-group-item"><i class="fa fa-sign-out"></i> Logout</a>
+</div>

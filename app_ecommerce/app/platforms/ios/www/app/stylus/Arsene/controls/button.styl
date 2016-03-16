@@ -1,0 +1,42 @@
+//initial variables 
+$transparency-percent = 0.8
+opacity-active = 0.8
+
+button-default(){
+	border: none;
+	border-radius($radius-small)
+	background-color: $palette-alpha-button-unselect
+	&:active,&:hover{
+		background-color: darken($palette-alpha-button-unselect, 7)
+	}
+}
+button-default-semi-transparent(){
+	border-radius($radius-small)
+	background-color: rgba($palette-alpha-button-unselect, $transparency-percent)
+	&:active,&:hover{
+		background-color: darken($palette-alpha-button-unselect, 2)
+	}
+}
+
+large-button(bg){
+	border-radius($radius-small)
+	border: none;
+	background-color bg
+	color: $palette-alpha-button-text !important
+	padding: 12px 16px; 
+	//text-transform: uppercase; 
+	text-align: center
+	line-height: 1.2;
+	ease-in-out-opacity()
+	&:active{
+		background-color: darken(bg, 5)
+		cursor: pointer
+		opacity: opacity-active; 
+	}
+}
+.btn-default{
+	large-button($palette-alpha-button-unselect)
+}
+.btn-default-alt{
+	large-button($palette-alpha-button-select)
+}

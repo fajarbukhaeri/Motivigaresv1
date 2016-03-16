@@ -1,0 +1,28 @@
+  <!-- define page -->
+  <ons-page id="cart" ng-controller="ShoppingCartCtrl">
+  <ons-toolbar class="top-toolbar-bg-dark">
+    <div class="left">
+      <ons-toolbar-button ng-click="goToHome_tap()"><ons-icon icon="ion-ios-home-outline"></ons-icon>Browse</ons-toolbar-button>
+    </div>
+  </ons-toolbar>
+  
+  <!-- Product List --> 
+  <div class="thank-you">
+    <ons-row>
+      <ons-col>
+        <h4>Thank You!</h4>
+        <p>Your purchase done successfully. Please Keep your order code</p>
+      </ons-col>
+    </ons-row>
+
+    <ons-row>
+      <ons-col width="100%">
+        <h4>Order Code: {{order.code}}</h4>
+      </ons-col>
+      
+    </ons-row>  
+    <span class="btn btn-default col" ng-click="goToHome_tap()">Continue Shopping</span>
+  </div>
+  
+
+</ons-page>

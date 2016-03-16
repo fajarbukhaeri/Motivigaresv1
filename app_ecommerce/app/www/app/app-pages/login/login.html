@@ -1,0 +1,37 @@
+  <!-- define page -->
+  <ons-page id="cart" ng-controller="ShoppingCartCtrl">
+  <ons-toolbar class="top-toolbar-bg-dark">
+    <div class="left heading"><ons-back-button>Back</ons-back-button></div>
+  </ons-toolbar>
+  
+  <!-- Product List --> 
+  <ons-list class="shopping-cart-view">
+  
+  <ons-list-item class="list-item payment-box">
+    <ons-row>
+      <ons-col width="100%">
+        <h4>Your Details</h4>
+        <p class="sub-title remove-margin-bottom">Please enter your details</p>
+      </ons-col>
+    </ons-row>
+
+    <ons-row>
+      <ons-col width="100%">
+        <input type="text" class="text-input col" placeholder="First name" ng-model="order.customer_firstname">
+        <ons-icon ng-hide="validateOrder.customer_firstname" class="error-icon" icon="ion-asterisk">
+      </ons-col>
+    </ons-row>
+    <ons-row>
+      <ons-col width="100%">
+        <input type="text" class="text-input col" placeholder="Last name" ng-model="order.customer_lastname">
+        <ons-icon ng-hide="validateOrder.customer_lastname" class="error-icon" icon="ion-asterisk">
+      </ons-col>
+    </ons-row>
+    <ons-row class="checkout-row">
+      <ons-col>
+        <span class="btn-default col" ng-click="payCash()">Place Your Order</span>
+      </ons-col>
+    </ons-row>
+  </ons-list-item>
+
+</ons-page>

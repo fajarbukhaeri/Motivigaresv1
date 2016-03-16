@@ -1,0 +1,34 @@
+<div ng-include="'app/ang/components/navbar/navbar.html'"></div>
+<div class="page_content col-md-7 col-lg-7 col-sm-7 col-xs-12" ng-controller="ProductsListCtrl">
+	<div class="panel panel-default">
+	  <div class="panel-heading">View Products List</div>
+	  <div class="panel-body">
+	  	<button type="button" class="btn btn-info btn-sm" ng-click="goTo('products-edit')">Add Product</button>
+	  	<hr>
+	  	<div class="table-responsive">
+		    <table class="table table-hover">
+		      <thead>
+		        <tr>
+		          <th>Name</th>
+		          <th>Price</th>
+		          <th>Quantity</th>
+		          <!--<th>Category</th>-->
+		          <th>Publish</th>
+		        </tr>
+		      </thead>
+		      <tbody>
+		        <tr dir-paginate="product in products | itemsPerPage: 20" ui-sref="products-edit({ pId: product.id })">
+
+		          <td><a ui-sref="products-edit({ pId: product.id })">{{product.name}}</a></td>
+		          <td>{{product.new_price}} {{product.currency}}</td>
+		          <td ng-bind="product.quantity"></td>
+		          <!--<td>{{findCat(product.categories_id)}}</td>-->
+		          <td>{{product.visibility ? "Published" : "No Published"}}</td>
+		        </tr>
+		      </tbody>
+		    </table>
+		    <dir-pagination-controls></dir-pagination-controls>
+		</div>
+	  </div>
+	</div>
+</div>

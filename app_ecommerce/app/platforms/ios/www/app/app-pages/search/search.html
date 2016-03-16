@@ -1,0 +1,31 @@
+<ons-page id="search-products" ng-controller="SearchCtrl">
+  <ons-toolbar class="top-toolbar-bg-dark">
+    <div class="left">
+        <div class="left heading"><ons-back-button>Search</ons-back-button></div>
+    </div>
+  </ons-toolbar>
+  <!-- Search Bar -->   
+  <div class="sub-header--search">
+    <span ng-click="cancelSearch_tap()" ng-if="SearchIcon" ng-cloack>Cancel</span>
+    <input type="search" class="search-input" ng-change="search_change()" ng-model="search.name" ng-click="SearchIcon = true">
+  </div>
+  <!-- Search Results --> 
+  <ons-list class="products-list">
+      <ons-list-item ng-animate="'animate'" class="list-item show-opacity" modifier="tappable" ng-repeat="item in searchResult" ng-click="viewProduct_tap(item.id)">
+        <ons-row>
+          <ons-col width="40px">
+          <img ng-src="{{url}}{{toJSON(item.images)}}" class="product-image">
+          </ons-col>
+          <ons-col class="right-side" >
+            <p class="product-name">{{item.name}}</p>
+            <!-- currency filter, you can change for your own currency --> 
+            <span class="price old" ng-cloak>{{ (item.old_price == 0 ? '' : (item.old_price | currency: currencyType)) }}</span>
+            <span class="price">{{item.new_price | currency: currencyType }}</span>
+            <div class="icons">
+              <ons-icon icon="ion-ios-eye"></ons-icon>
+            </div>
+          </ons-col>
+        </ons-row>
+      </ons-list-item>
+  </ons-list>
+</ons-page>

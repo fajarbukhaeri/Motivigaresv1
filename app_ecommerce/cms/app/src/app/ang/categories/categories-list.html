@@ -1,0 +1,26 @@
+<div ng-include="'app/ang/components/navbar/navbar.html'"></div>
+<div class="page_content col-md-7 col-lg-7 col-sm-7 col-xs-12" ng-controller="CategoriesListCtrl">
+	<div class="panel panel-default">
+	  <div class="panel-heading">View Categories List</div>
+	  <div class="panel-body">
+	  	<button type="button" class="btn btn-info btn-sm" ng-click="goTo('categories-edit')">Add Categories</button>
+	  	<hr>
+	  	<div class="table-responsive">
+		    <table class="table table-hover">
+		      <thead>
+		        <tr>
+		          <th>Title</th>
+		          <th>Description</th>
+		        </tr>
+		      </thead>
+		      <tbody>
+		        <tr ng-repeat="cat in categories" ui-sref="categories-edit({ catId: cat.id })">
+		          <td ng-bind="cat.name"></td>
+		          <td ng-bind="cat.description"></td>
+		        </tr>
+		      </tbody>
+		    </table>
+		</div>
+	  </div>
+	</div>
+</div>

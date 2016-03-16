@@ -1,0 +1,222 @@
+  <!-- define page -->
+  <ons-page id="cart" ng-controller="ShoppingCartCtrl">
+  <ons-toolbar class="top-toolbar-bg-dark">
+    <div class="left heading"><ons-back-button>Checkout</ons-back-button></div>
+  </ons-toolbar>
+  
+  <!-- Product List --> 
+  <ons-list class="shopping-cart-view">
+  <!-- Total Amount -->
+  <ons-list-item class="list-item total-amount" ng-show="!(countCartProducts() == 0 ? true : false)">
+    <ons-row>
+     <ons-col>
+        <h4>Total Amount</h4>
+      </ons-col>
+      <ons-col class="float-right">
+        <h4>{{updateTotal() | currency: currencyType }}</h4>
+      </ons-col>
+    </ons-row>
+  </ons-list-item>
+
+  <ons-list-item class="list-item remove-border-bottom" ng-show="!(countCartProducts() == 0 ? true : false)">
+    <ons-row>
+      <h4 class="col">Shipping Methods</h4>
+    </ons-row>
+    
+    <ons-row class="shipping">
+      <ul class="list">
+        <li class="list__item list__item--tappable" ng-repeat="shipping in shippingMethods">
+          <label class="radio-button radio-button--list-item" ng-click="shippingMethods_change($index)">
+            <input type="radio" name="b" ng-value="shipping.title" ng-model="order.customer_shipping_class">
+            <div class="radio-button__checkmark
+              radio-button--list-item__checkmark"></div>
+            <b ng-bind="shipping.title"></b>: {{shipping.description}}
+            <span class="shipping-price">{{shipping.price | currency: currencyType}}</span>
+          </label>
+        </li>
+      </ul>
+    </ons-row>
+  </ons-list-item>
+  <ons-list-item class="list-item remove-border-bottom" ng-show="!(countCartProducts() == 0 ? true : false)">
+    <ons-row>
+      <h4 class="col">Payment Method</h4>
+    </ons-row>
+    
+    <ons-row class="shipping">
+      <ul class="list">
+        <li class="list__item list__item--tappable" ng-repeat="payment in payment_types">
+          <label class="radio-button radio-button--list-item" ng-click="paymentType_change($index)">
+            <input type="radio" name="pay" ng-value="payment" ng-model="order.payment_type">
+            <div class="radio-button__checkmark
+              radio-button--list-item__checkmark"></div>
+            <b ng-bind="payment"></b>
+          </label>
+        </li>
+      </ul>
+  </ons-row>
+  </ons-list-item>
+  
+
+  <!-- Payment Section -->
+  
+  <ons-list-item class="list-item payment-box" ng-if="order.payment_type == 'via PayPal' ? true : false">
+    <ons-row>
+      <ons-col width="100%">
+        <h4>Your Details</h4>
+        <p class="sub-title remove-margin-bottom">Please enter your details and proceed with the payment</p>
+      </ons-col>
+    </ons-row>
+
+    <ons-row>
+      <ons-col width="100%">
+        <input type="text" class="text-input col" placeholder="First name" ng-model="order.customer_firstname">
+        <ons-icon ng-hide="validateOrder.customer_firstname" class="error-icon" icon="ion-asterisk">
+      </ons-col>
+    </ons-row>
+    <ons-row>
+      <ons-col width="100%">
+        <input type="text" class="text-input col" placeholder="Last name" ng-model="order.customer_lastname">
+        <ons-icon ng-hide="validateOrder.customer_lastname" class="error-icon" icon="ion-asterisk">
+      </ons-col>
+    </ons-row>
+    <ons-row>
+      <ons-col width="100%">
+        <input type="text" class="text-input col" placeholder="Email Address" ng-model="order.customer_email_address">
+        <ons-icon ng-hide="validateOrder.customer_email_address" class="error-icon" icon="ion-asterisk">
+      </ons-col>
+    </ons-row>
+
+    <ons-row>
+      <ons-col width="100%">
+        <input type="text" class="text-input col" placeholder="Country" ng-model="order.customer_country">
+        <ons-icon ng-hide="validateOrder.customer_country" class="error-icon" icon="ion-asterisk">
+      </ons-col>
+    </ons-row>
+    <ons-row>
+      <ons-col width="100%">
+        <input type="text" class="text-input col" placeholder="City" ng-model="order.customer_city">
+        <ons-icon ng-hide="validateOrder.customer_city" class="error-icon" icon="ion-asterisk">
+      </ons-col>
+    </ons-row>
+    <ons-row>
+      <ons-col width="100%">
+        <textarea class="text-input col" placeholder="Address" ng-model="order.customer_address"></textarea>
+        <ons-icon ng-hide="validateOrder.customer_address" class="error-icon" icon="ion-asterisk">
+      </ons-col>
+    </ons-row>
+    <ons-row>
+      <ons-col width="100%">
+        <input type="text" class="text-input col" placeholder="Zip code" ng-model="order.customer_zipcode">
+        <ons-icon ng-hide="validateOrder.customer_zipcode" class="error-icon" icon="ion-asterisk">
+      </ons-col>
+    </ons-row>
+    <ons-row>
+      <ons-col width="100%">
+        <input type="text" class="text-input col" placeholder="Phone Number" ng-model="order.customer_phone_number">
+        <ons-icon ng-hide="validateOrder.customer_phone_number" class="error-icon" icon="ion-asterisk">
+      </ons-col>
+    </ons-row>
+    <ons-row>
+      <ons-col width="100%">
+        <textarea class="text-input col" placeholder="Additional Note (Optional)" ng-model="order.customer_note"></textarea>
+      </ons-col>
+    </ons-row>
+
+    <ons-row class="checkout-row">
+      <ons-col class="col-paypal-image">
+        <img src="assets/images/pp-acceptance-large.png">
+      </ons-col>
+      <ons-col>
+        <span class="btn-default col" ng-click="pay()">Pay with PayPal</span>
+      </ons-col>
+    </ons-row>
+  </ons-list-item>
+
+  <ons-list-item class="list-item payment-box" ng-if="order.payment_type == 'Cash on Delivery' ? true : false">
+    <ons-row>
+      <ons-col width="100%">
+        <h4>Your Details</h4>
+        <p class="sub-title remove-margin-bottom">Please enter your details</p>
+      </ons-col>
+    </ons-row>
+
+    <ons-row>
+      <ons-col width="100%">
+        <input type="text" class="text-input col" placeholder="First name" ng-model="order.customer_firstname">
+        <ons-icon ng-hide="validateOrder.customer_firstname" class="error-icon" icon="ion-asterisk">
+      </ons-col>
+    </ons-row>
+    <ons-row>
+      <ons-col width="100%">
+        <input type="text" class="text-input col" placeholder="Last name" ng-model="order.customer_lastname">
+        <ons-icon ng-hide="validateOrder.customer_lastname" class="error-icon" icon="ion-asterisk">
+      </ons-col>
+    </ons-row>
+    <ons-row>
+      <ons-col width="100%">
+        <input type="text" class="text-input col" placeholder="Email Address" ng-model="order.customer_email_address">
+        <ons-icon ng-hide="validateOrder.customer_email_address" class="error-icon" icon="ion-asterisk">
+      </ons-col>
+    </ons-row>
+
+    <ons-row>
+      <ons-col width="100%">
+        <input type="text" class="text-input col" placeholder="Country" ng-model="order.customer_country">
+        <ons-icon ng-hide="validateOrder.customer_country" class="error-icon" icon="ion-asterisk">
+      </ons-col>
+    </ons-row>
+    <ons-row>
+      <ons-col width="100%">
+        <input type="text" class="text-input col" placeholder="City" ng-model="order.customer_city">
+        <ons-icon ng-hide="validateOrder.customer_city" class="error-icon" icon="ion-asterisk">
+      </ons-col>
+    </ons-row>
+    <ons-row>
+      <ons-col width="100%">
+        <textarea class="text-input col" placeholder="Address" ng-model="order.customer_address"></textarea>
+        <ons-icon ng-hide="validateOrder.customer_address" class="error-icon" icon="ion-asterisk">
+      </ons-col>
+    </ons-row>
+    <ons-row>
+      <ons-col width="100%">
+        <input type="text" class="text-input col" placeholder="Zip code" ng-model="order.customer_zipcode">
+        <ons-icon ng-hide="validateOrder.customer_zipcode" class="error-icon" icon="ion-asterisk">
+      </ons-col>
+    </ons-row>
+    <ons-row>
+      <ons-col width="100%">
+        <input type="text" class="text-input col" placeholder="Phone Number" ng-model="order.customer_phone_number">
+        <ons-icon ng-hide="validateOrder.customer_phone_number" class="error-icon" icon="ion-asterisk">
+      </ons-col>
+    </ons-row>
+    <ons-row>
+      <ons-col width="100%">
+        <textarea class="text-input col" placeholder="Additional Note (Optional)" ng-model="order.customer_note"></textarea>
+      </ons-col>
+    </ons-row>
+
+    <ons-row class="checkout-row">
+      <ons-col>
+        <span class="btn-default col" ng-click="payCash()">Place Your Order</span>
+      </ons-col>
+    </ons-row>
+  </ons-list-item>
+
+  <ons-list-item class="list-item payment-box" ng-if="order.payment_type == 'via Bank Transfer' ? true : false">
+    <ons-row>
+      <ons-col width="100%">
+        <h4>Info Transfer</h4>
+        <p class="sub-title remove-margin-bottom">Harap transfer pembayaran ke nomor rekening <b> 777-1497199 </b>CV Tri Artha Wijaya<br><br>Pastikan pada berita transfer cantumkan kode reseller dan bukan yang lain untuk memudahkan konfirmasi pembayar<br><br>Konfirmasi pembayaran dilakukan dengan mengirimkan sms ke  nomor 081221122125</p>
+      </ons-col>
+    </ons-row>
+  </ons-list-item>
+
+</ons-list>
+
+<!-- <div class="bottom-bar" style="text-align: center">
+  <div class="bottom-bar__line-height">
+    {{updateTotal() | currency: currencyType }}
+  </div>
+</div> -->
+
+</ons-page>

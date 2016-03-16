@@ -1,0 +1,266 @@
+<!doctype html>
+<html class="no-js">
+	<head>
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<link rel="stylesheet" href="font_awesome/css/font-awesome.min.css">
+		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+		<link rel="icon" href="favicon.ico" type="image/x-icon">
+		<title>Arsène Documentation</title>
+	</head>
+	
+	<body>
+		<div class="header">
+			<p>Arsène Documentation</p>
+		</div>
+		<div class="nav">
+			<a href="#InstallRunCMS" class="nav-item">Install & Run gilas CMS<i class="fa fa-angle-right"></i></a>
+			<a href="#LearnCMS" class="nav-item">Learn gilas CMS<i class="fa fa-angle-right"></i></a>
+			<a href="#InstallRunApp" class="nav-item">Run iOS & Android Apps<i class="fa fa-angle-right"></i></a>
+			<a href="#PS" class="nav-item">Project Structure <i class="fa fa-angle-right"></i></a>
+			<a href="#CS" class="nav-item">CSS Theme Colors<i class="fa fa-angle-right"></i></a>
+		</div>
+		
+		<div class="content" style="background-color: #F5F5B4">
+			<h1 style="color: #1F3542">Thank your for your Purchase!</h1>
+			<p>Arsene is easy to get started and install, please spend some time and read throught the documentation</p>
+			
+		</div>
+
+		<div class="content" id="InstallRunCMS">
+			<h1><i class="fa fa-ellipsis-v"></i> Install & Run CMS</h1>
+			<p>
+				Your mobile application using CMS(Content Management System) to manage your store products, orders, categories, product specifications and other settings. this section explain in details how you can  set up a host and Install your cloud server.
+				<h2>Install Host & Server</h2>
+				You need a host and server to run your mobile application and your CMS. we are using Digital Ocean Cloud servers. if you already have one, just skip this section and continue with next section. <br>
+				
+				Cloudways gives you 14 days Free Trial upon registration, please register new account: <br>
+				<a target="_blank" class="code" href="http://www.cloudways.com/en/?id=23554">Register Cloudways Account</a>
+				<b>Important note! connect your credit card during Free Trial period, becuase they will remove your server when your trial is finish.</b>
+				
+				<br>
+				when you get your account details in your email please login and you will see below screen: 
+				<img src="images/server-1.jpg">
+
+				here you can go with default options or change according to your needs. if you have lot of visitors and users for your mobile app, then it's better to choose higher number of page views. <br>
+				Server location is your country or country near you. (a country that your most visitors visit your app)
+				<br>
+
+				click Launch and you will see below screen:<br>
+				<img src="images/server-2.jpg">
+				Now you create your server and it's ready to host your application files and database. Please click on "Manage Server" and go to next section.<br>
+
+
+				<h2>Copy CMS to Server</h2>
+				Now you need to Download one of FTP/SFTP software such as <a href="http://bitvise-ssh-client.software.informer.com/4.6/" target="_blank">Bitvise</a>, when you download the software, get your server crenditials from SSH/SFTP section.<br>
+
+				<img src="images/server-3.jpg">
+				Now open Bitvise and enter your information. host is your public IP , username and password is same as your server info, for the port section, use 22.<br>
+				open public_html folder, copy "cms", "app" folders from Themeforest Package, and paste into public_html folder.<br>
+				<img src="images/server-4.jpg">
+
+
+				<h2>Create Your App Database</h2>
+				Now you need to create your database, again back to your server account and click on MySql Manager. you will see below screen:<br> 
+				<img src="images/db-1.jpg">
+				Click on "Import" link. this section you will import your database. choose "arsene-db.sql" file from root of application folder that you download from Themeforest.<br>
+
+				<h2>Set Up</h2>
+				You need to provide your database account details for CMS APIs. please open below file<br>
+				<a href="" class="code">cms/api/DbInit.php</a>
+				and change below details according to your server account. you just need to change, username,password and database_name.
+				<img src="images/db-3.jpg">
+
+				<h2>Login to CMS</h2>
+				Now you can login to your database and manage your mobile application. <br>from below URL you can access your CMS.<br>
+				<a href="" class="code">[Your Website URL]/cms/app/src/index.html#/login</a>
+				<b>Username: admin || Password: admin </b><br>
+				you can change your password/username later in setting section.
+
+			</p>
+		</div>
+
+		<div class="content" id="LearnCMS">
+			<h1><i class="fa fa-ellipsis-v"></i> Learn gilas CMS</h1>
+			<p>
+				gilas is HotSpicyApps CMS which you can manage your store easily.
+				This section explains how you can use CMS for different part of your stores.<br>
+
+				<h2>Point to your Host Url</h2>
+				CMS need your website Root URL to work properly. first open below file<br>
+				<a href="" class="code">cms/app/src/app/ang/services/setting.service.js</a>
+				Enter your website URL <span style="color:red">(Please remember to not include the slash (/) at end of your website URL)</span>
+				<img src="images/admin-0.jpg">
+
+				<h2>Store Setting</h2>
+				In this section you will enter your Store and account settings<br>
+				<img src="images/admin-1.jpg">
+
+				<h2>Manage Categories</h2>
+				<br> 
+				<img src="images/admin-2.jpg">
+
+				<h2>Manage Product Specifications</h2>
+				if you have products that have custom specification such as colors or sizes, please create item specification here and later when you add your product, you can use it.
+				<br>
+				<img src="images/admin-3.jpg">
+
+				<h2>Manage Products</h2>
+				Please first add your product, after that you can add your images<br>
+				<img src="images/admin-4.jpg">
+
+				<h2>Manage Shipping</h2>
+				In order to enable shipping in your application, you need to add shipping class in this section with details.
+				<img src="images/admin-6.jpg">
+
+				<h2>Manage Orders</h2>
+				Orders are created when your customer complete their purchase. you can see what items they bought in details.
+				<img src="images/admin-5.jpg">
+
+			</p>
+		</div>
+
+		<div class="content" id="InstallRunApp">
+			<h1><i class="fa fa-ellipsis-v"></i> Install & Run App</h1>
+			<p>
+				this section helps you to getting started with running your application with Cordova and angularjs in your computer. 
+				<h2>Set it Up</h2>
+				before you run your application, you need to connect it with your CMS and add your store profile.
+				please open below file: <br>
+				<a href="" class="code">app/www/app/app-pages/services/setting.service.js</a>
+				<img src="images/app-0.jpg">
+				
+				Now open below file: <br>
+				<a href="" class="code">app/www/index.html</a>
+				Change Title to your store name<br>
+				<img src="images/app-1.jpg">
+
+				Now open below folder to change your app logo: <br>
+				<a href="" class="code">app/www/app/app-pages/assets/images/logo.jpg</a>
+
+				Now open below file: <br>
+				<a href="" class="code">app/www/app/app-pages/services/store-profile.js</a>
+				<img src="images/app-2.jpg">
+
+				<br>
+				<b>Add PayPal</b>
+				<br>
+				in order to use PayPal in your app, You need to set up your PayPal Developer account. you can check it <a href="https://developer.paypal.com/">here</a>. then you can complete your profile and retrieve the paypal account Client ID. there two types of account. Sandbox and Production. you can check the full doc <a href="https://developer.paypal.com/docs/integration/admin/manage-apps/">here</a>.
+				you can set your client IDs for sandbox and production in this file. <br><br>				
+				if you plan to use your Paypal production, open below line: <br>
+				<a href="" class="code">app/www/app/app-pages/services/paypal.service.js</a>
+				go to below line: <br>
+				<a href="" class="code">PayPalMobile.prepareToRender("PayPalEnvironmentSandbox", configuration());</a>
+				change it to: <br>
+				<a href="" class="code">PayPalMobile.prepareToRender("PayPalEnvironmentProduction", configuration());</a>
+
+				<b>Change Currency</b>
+				<br>
+				If you need to change your currency, you can change your currency type in "Currency" line. please note that, you currency should be valid. check <a href="https://developer.paypal.com/docs/classic/api/currency_codes/">PayPal website</a> for more information. 
+				<br><br>
+
+				<b>Change Store Name</b>
+				<br>
+				find "Name" in current file and change it as your store name.<br>
+
+				<h2>1. Install NodeJS</h2>
+				Download NodeJS from below link: <br>
+				<a class="code" href="https://nodejs.org/download/">https://nodejs.org/download/</a>
+
+				<h2>2. Install Git Client</h2>
+				Download and Install Git client:<br> 
+				<a class="code" href="http://git-scm.com/downloads">http://git-scm.com/downloads</a>
+
+				<h2>3. Install Cordova</h2>
+				open your command line (Windows command prompt or git Bash) and enter the command<br>
+				<img src="images/cordova-install.JPG">
+				<a class="code">npm install -g cordova</a>
+				close and open your command line after installing Cordova. <br>
+
+				<h2>4. Install npm & bower Packages</h2>
+				<a class="code">npm install</a>
+				<a class="code">bower install</a>
+
+				<h2>5. Install Android sdk & Studio</h2>
+				You need to Download and Install android studio and android sdk to build & run your android app. please download them from following link: <br>
+				<a class="code">https://developer.android.com/sdk/index.html</a>
+
+				<h2>6. Install Xcode for Mac</h2>
+				You need to Download and Install XCode package to build & run your iOS app. beside that, you should register for developer account via apple developer program in order to access development features. please visit below link: <br>
+				<a class="code">https://developer.apple.com/xcode/downloads/</a>
+
+				<h2>Run in your browser</h2>
+				If you want to debug your application and run with your browser, you need to run, below command in your command line: <br> 
+				<img src="images/run-gulp.JPG">
+				<a class="code">gulp serve</a>
+
+
+				<h2>Run in Android Device</h2>
+				Enter to app folder via command line and enter below command to run the app with your connected device.<br>
+				<a class="code">cordova run android --device</a>
+				Please remember your device need to connect properly via USB to your computer. and activate USB debugging in your android phone. <br> 
+				<a class="code">Setting -> Developer Options -> USB Debugging</a>
+
+				<h2>Run in iOS Device</h2>
+				in order to run iOS app, you need mac Device & latest mac OS (yosemite) with latest updates. beside that you need developer account too.<br>
+				<a class="code">https://developer.apple.com/programs/enroll/</a>
+				After you prepare your enviroments, please open platforms/ios folder and open the project with xcode and simply run the app<br>
+
+				
+			</p>
+		</div>
+
+		<div class="content" id="PS">
+			
+			<h1><i class="fa fa-ellipsis-v"></i> Folder Structure <small>(For Developers)</small></h1>
+			<p>this section gives a summary of main folders in Arsene application folder. 
+				<h2> "app/www" Folder</h2>
+					<ul>
+						<li><b>libs:</b> include all bower packages which used in the project. by removing any of the folders maybe your application face problem</li>
+						
+						<li><b>app:</b> this folder include CSS styles and angualrjs application (app-pages folder). "app-pages" includes all angualrjs application files such as views and JavaScript files. this folder includes controllers, services, directive and HTML views. there are four different styles which you can include either one of these styles (default, red, green, orange) to your index.html.</li>
+
+						<li><b>assets:</b></li>
+					</ul>
+					<h2>"app/platforms" Folder</h2>
+					include all Cordova platforms. Arsene just adds android as default platform. you can add windows 8 (Arsene is not fully compatible with windows 8 yet) and iOS platform too. 
+
+					<h2>"app/plugins" Folder</h2>
+					<br>Include all Cordova plugins for all platforms. 
+
+					<h2>"app/bower_components" Folder</h2>
+					<br>Include bower packages. 
+
+					<h2>"app/node_modules" Folder</h2>
+					<br>Include node modules that used in the app
+			</p>
+		</div>
+
+		<div class="content" id="CS">
+			<h1><i class="fa fa-ellipsis-v"></i> App Color Themes <small>(For Developers)</small></h1>
+			
+			<h2>Arsene CSS Theme</h2>
+			<p>
+				We build four different color for Arsene App, you can choose either one of them for your application.
+				<a href="" class="code">/app/www/app/default.css</a>
+				<a href="" class="code">/app/www/app/red.css</a>
+				<a href="" class="code">/app/www/app/green.css</a>
+				<a href="" class="code">/app/www/app/orange.css</a>
+			</p>
+
+			<h2>Change CSS</h2>
+			<p>
+				Open your index.html file: <br>
+				<a href="" class="code">/app/www/index.html</a>
+				Find below line: <br>
+				<img src="images/change-theme.JPG">
+				Change it to (for example red): <br>
+				<img src="images/theme-red.JPG">
+			</p>
+		</div>
+
+		<div class="ask-more">
+			<p>Couldn't find your answer ?</p>
+			<a href="http://www.hotspicyapps.com/arsene/ask-us.php" target="_blank">Ask us in envato Market!</a>
+		</div>
+	</body>
+</html>

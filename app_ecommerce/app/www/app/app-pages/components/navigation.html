@@ -1,0 +1,38 @@
+<!-- Sliding Navigation --> 
+<ons-sliding-menu
+  main-page= "{{ viewsUrl }}/products/products-view.html"
+  menu-page="menu.html"       
+  side="left"
+  max-slide-distance="75%"
+  type="push"
+  var="menu"
+  close-on-tap 
+
+</ons-sliding-menu>loadCategory_tap
+
+<!-- Sliding Navigation html --> 
+<ons-template id="menu.html">
+  <ons-page>
+    <ons-list id="left-side-menu">  
+    <ons-list-item image>
+      <div class="menu-profile-pic">
+        <img ng-src="{{logoUrl}}">
+        <h4>{{siteName}}</h4>
+      </div>
+    </ons-list-item>
+      <ons-list-item ng-repeat="cat in categories" ng-click="loadCategory_tap(cat.id, cat.name)">
+      {{cat.name}}
+      </ons-list-item>
+    </ons-list>
+    <!-- <ons-list id="left-side-menu-login">
+      <ons-list-item>
+      Login
+      </ons-list-item>
+    </ons-list> -->
+    <span class="btn-default col" ng-click="login_tap()">
+          <span>
+            Login  
+          </span>
+    </span>
+  </ons-page>
+</ons-template>

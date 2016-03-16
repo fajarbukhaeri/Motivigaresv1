@@ -1,0 +1,36 @@
+<div ng-include="'app/ang/components/navbar/navbar.html'"></div>
+<div class="page_content col-md-7 col-lg-7 col-sm-7 col-xs-12" ng-controller="OrdersListCtrl">
+	<div class="panel panel-default">
+	  <div class="panel-heading">View Orders</div>
+	  <div class="panel-body">
+	  	<div class="input-group">
+	      <input type="text" class="form-control" placeholder="Find by Customer Email | Order Code" ng-model="search_text">
+	      <span class="input-group-btn">
+	        <button class="btn btn-default" type="button">Find!</button>
+	      </span>
+	    </div><!-- /input-group -->
+	  	<hr>
+	  	<div class="table-responsive">
+		    <table class="table table-hover">
+		      <thead>
+		        <tr>
+		          <th>Order Code</th>
+		          <th>Customer Name</th>
+		          <th>Customer Email</th>
+		          <th>Total Purchased</th>
+		        </tr>
+		      </thead>
+		      <tbody>
+		        <tr dir-paginate="order in orders | filter:search_text | itemsPerPage: 20" ui-sref="orders-view({ orderId: order.id })">
+		          <td ng-bind="order.code"></td>
+		          <td>{{order.customer_firstname}} {{order.customer_lastname}}</td>
+		          <td ng-bind="order.customer_email_address"></td>
+		          <td>{{currency}}{{order.total_amount}}</td>
+		        </tr>
+		      </tbody>
+		    </table>
+		    <dir-pagination-controls></dir-pagination-controls>
+		</div>
+	  </div>
+	</div>
+</div>

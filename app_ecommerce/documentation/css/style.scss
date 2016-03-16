@@ -1,0 +1,141 @@
+$green: #13bb9d; 
+$dark-blue: #1f3542; 
+$light: #fff;
+p{
+	margin:0 ;
+	clear: both; 
+}
+body{
+	background-color: #EDEDED; 
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-size: 13px; 
+	margin: 0; 
+}
+.header{
+	height: 45px; 
+	background-color: $dark-blue; 
+	top: 0; 
+	p{
+	  padding: 14px;
+	  margin: 0 auto;
+	  color: $light;
+	  font-size: 18px;
+	  text-align: center;
+	}
+}
+.nav{
+	float: left; 
+	max-width: 205px; 
+	width: 30%; 
+	height: 1400px;
+	position: fixed;
+	margin-top: 17px;
+	margin-left: 28px;
+	
+	.nav-item{
+		width: 100%; 
+		background-color: $light; 
+		border-radius: 5px; 
+		margin: 5px auto; 
+		color: $dark-blue;
+		font-weight: bold; 
+		padding: 15px 15px; 
+		text-decoration: none; 
+		float: left;
+		transition: background-color 0.2s ease-in-out; 
+		box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.08);
+		&:hover{
+			background-color: $green;
+			color: $light; 
+		}
+		.fa{
+			  float: right;
+		}
+	}
+}
+.content{
+	background-color: $light;
+	border: 1px solid darken(#f2f2f2, 10); 
+	border-radius: 4px; 
+	color: black; 
+	padding:15px 42px;
+	line-height: 23px;
+	margin-left: 280px; 
+	max-width: 750px; 
+	width: 44%; 
+	max-width: 100%; 
+	float:left; 
+	margin-top:20px;
+
+	box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.08);
+	img{
+		margin: 5px 0; 
+	}
+
+}
+.title, h1{
+  font-size: 24px;
+  line-height: 0;
+  font-weight: bold;
+  color: $green;
+}
+.ask-more{
+	float: left; 
+	clear: both; 
+	text-align: left; 
+	margin: 30px 0 50px 280px; 
+	p{margin-bottom: 26px;}
+	a{
+		background-color: #e84141; 
+		color: $light; 
+		border-radius: 5px; 
+		transition: opacity 0.1s ease-in-out; 
+		box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.08);
+		font-weight: bold; 
+		padding: 15px 15px; 
+		text-decoration: none;
+		&:hover{
+			opacity: 0.9; 
+		} 
+	}
+}
+a{
+	color: $green; 
+	text-decoration: none; 
+}
+img{
+	display: block; 
+	max-width: 100%;
+	margin:10px 0; 
+}
+hr{
+	width: 100%; 
+	border: none; 
+	float: left; 
+	border-top: 1px solid; 
+	border-color: #E0E0E0; 
+}
+.h2, h2{
+	font-size: 16px;
+	margin-top:10px; 
+	color: $dark-blue;
+	float: left; 
+	width: 100%; 
+	line-height: 180%;
+}
+.code{
+	  width: 100%; 
+	  clear: both; 
+  background-color: #f2f2f2;
+  padding: 11px 0 11px 7px;
+  border-radius: 5px;
+  float: left;
+  margin: 10px 3px;
+}
+ul{
+	float: left; 
+	li{
+		  float: left;
+	  width: 100%;
+	}
+}

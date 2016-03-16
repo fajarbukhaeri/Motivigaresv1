@@ -1,0 +1,53 @@
+.login_container{
+	background-color: rgba(#3498db, 0.69); 
+	width: 100%; 
+	height: 100%; 
+	position: fixed; 
+	left: 0; 
+	right:0; 
+	form{
+		text-align: center;
+		width: 70%;
+		max-width: 400px;
+  		margin: 0 auto;
+  		margin-top: 15%; 
+
+  		animation: formanime 1s ease-in-out; 
+  		-webkit-animation: formanime 1s ease-in-out; 
+  		-moz-animation: formanime 1s ease-in-out; 
+  		.form-control{
+  			background-color: transparent !important; 
+  			height: 45px !important; 
+  			color: #fff !important; 
+  			font-size: 15px; 
+  			border: 1px solid rgba(255, 255, 255, 0.39);
+  		}
+  		button{
+  			font-weight: bold;
+  			background-color: #f1c40f;
+  			font-size: 15px; 
+  			&:hover, &:focus, &:active{
+  				background-color: darken(#f1c40f, 3);
+  			}
+  			height: 45px !important;  
+  		}
+  		img{
+  			margin-bottom: 40px;
+  		}
+	}
+}
+
+@-webkit-keyframes formanime {
+    0% {opacity:0;}
+    20% {}
+    70% {opacity:0.8; margin-top:10%}
+    100% {opacity:1; margin-top:15%}
+} 
+
+/* Standard syntax */ 
+@keyframes formanime {
+   0% {opacity:0;}
+    20% {}
+    70% {opacity:0.8; margin-top:10%}
+    100% {opacity:1; margin-top:15%}
+}

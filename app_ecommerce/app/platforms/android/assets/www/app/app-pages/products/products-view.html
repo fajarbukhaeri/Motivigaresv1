@@ -1,0 +1,66 @@
+<ons-navigator var="pageNav" main-page="{{ viewsUrl }}/products/products-grid-view.html" >
+  <ons-page id="view-products" ng-controller="ProductsViewCtrl">
+    <ons-toolbar class="top-toolbar-bg-dark">
+      <div class="left">
+        <ons-toolbar-button ng-click="menu.toggleMenu()"><ons-icon icon="ion-navicon"></ons-icon>Motiviga</ons-toolbar-button>
+      </div>
+      <div class="right">
+       <ons-toolbar-button ng-click="goTo('/search/search.html')"><ons-icon class="search-icon" icon="ion-android-search"></ons-icon></ons-toolbar-button>
+      <ons-toolbar-button ng-click="goTo('/shopping-cart/shopping-cart-view.html')"><ons-icon ng-class="{'active-cart': cartCount > 0}" icon="ion-ios-cart-outline"></ons-icon></ons-toolbar-button>
+      </div>
+    </ons-toolbar>
+    <!-- Item Filter --> 
+    <div class="sub-header--filter">
+      <div class="tab-bar tab-bar--top tab-bar--top-border" >
+        <label class="tab-bar__item tab-bar--top-border__item" ng-click="isGrid = false">
+          <input type="radio" name="top-tab-bar-b" checked="checked">
+          <button class="tab-bar__button tab-bar--top-border__button">
+            List view
+          </button>
+        </label>
+
+        <label class="tab-bar__item tab-bar--top-border__item" ng-click="isGrid = true">
+          <input type="radio" name="top-tab-bar-b" >
+          <button class="tab-bar__button tab-bar--top-border__button">
+            Grid view
+          </button>
+        </label>
+
+      </div>
+    </div>
+    <!-- Product List --> 
+    <div class="products-grid" ng-show="isGrid">
+      <div class="product-item" ons-lazy-repeat="gridProducts_list()">
+        <div class="inner-content">
+          <div class="image-container">
+            <img ng-src="{{url}}{{product.image}}" ng-click="viewProduct_tap(product.id)">
+          </div>
+          <p ng-click="viewProduct_tap(product.id)">{{product.name}}
+          </p>  
+          <span class="price" ng-click="viewProduct_tap(product.id)">{{product.new_price | currency: currencyType }}</span>
+          <span class="price old">
+            {{ (product.old_price == 0 ? '' : (product.old_price | currency: currencyType)) }}
+          </span>
+        </div>
+       <hr>
+      </div>
+    </div>
+    <ons-list class="products-list-browse" ng-show="!isGrid">
+      <ons-list-item class="list-item" ons-lazy-repeat="listProducts_list()" ng-click="viewProduct_tap(product.id)">
+        <ons-row>
+          <ons-col width="40px">
+          <img ng-src="{{url}}{{product.image}}" class="product-image">
+          </ons-col>
+          <ons-col class="right-side">
+            <p class="product-name" ng-bind="product.name"></p>
+            <span class="price old" ng-cloak ng-if="product.old_price == 0 ? false : true">{{ (product.old_price == 0 ? '' : (product.old_price | currency: currencyType)) }}</span>
+            <span class="price" ng-cloak>{{product.new_price | currency: currencyType }}</span>
+            <div class="icons">
+              <ons-icon icon="ion-ios-eye"></ons-icon>
+            </div>
+          </ons-col>
+        </ons-row>
+      </ons-list-item>
+    </ons-list>
+  </ons-page>
+</ons-navigator>

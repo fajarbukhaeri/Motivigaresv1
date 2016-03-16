@@ -1,0 +1,51 @@
+.onsen-sliding-menu__menu .page__background{
+	background-color: $palette-beta-bg !important
+}
+#left-side-menu{
+	background-color: $palette-beta-bg !important
+	*{
+		color: $palette-beta-p !important
+		border:none !important ; 
+		text-align:center; 
+		font-size: 14px;
+	}
+	.list__item{
+		border 1px solid $palette-beta-bg !important; 
+	}
+	.list__item:not(:last-child){
+		background-image none;
+	}
+	img{
+		width: 80%;
+		margin-top: 60px
+	}
+	ons-list-item{
+		
+		&:hover , &:active{
+			background-color: rgba($palette-alpha-border, 0.2)
+		}
+		&[image]{
+			&:hover , &:active{
+				background none 
+			}
+		}
+	}
+}
+.menu-profile-pic{
+	line-height: 9px;
+	margin-bottom: 30px !important;
+	img{
+		width: 70px !important
+		height: 70px !important
+		border-radius(100px)
+		border: 3px solid $palette-alpha-border !important;
+		margin-top: 30px !important;
+		&:active, &:hover{
+			cursor: pointer 
+			opacity: 0.9
+		}
+	}
+}
+.list__item{
+		border-bottom none 
+	}

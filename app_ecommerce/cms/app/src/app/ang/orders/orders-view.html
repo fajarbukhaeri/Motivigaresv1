@@ -1,0 +1,116 @@
+<div ng-include="'app/ang/components/navbar/navbar.html'"></div>
+<div class="page_content col-md-7 col-lg-7 col-sm-7 col-xs-12" ng-controller="OrdersViewCtrl">
+	<div class="panel panel-default">
+	  <div class="panel-heading">View order</div>
+	  <div class="panel-body">
+		<div bs-active-pane="activeTab" bs-tabs>
+		  <div title="Basic Info" bs-pane>
+		  	<div class="page-header">
+			  <h1><small>Basic Info</small></h1>
+			</div>
+			<div class="table-responsive">
+			    <table class="table table-hover">
+			      <thead>
+			        <tr>
+			          <th>Code</th>
+			          <th>Total Amount</th>
+			          <th>Payment Method</th>
+			          <th>Date & Time</th>
+			        </tr>
+			      </thead>
+			      <tbody>
+			        <tr>
+			          <td ng-bind="order.code"></td>
+			          <td>{{currency}}{{order.total_amount}}</td>
+			          <td>{{order.payment_type}}</td>
+			          <td ng-bind="order.date_time"></td>
+			        </tr>
+			      </tbody>
+			    </table>
+			</div>
+		  </div>
+		  <div title="Customer Details" bs-pane>
+		  	<div class="page-header">
+			  <h1><small>Customer Details</small></h1>
+			</div>
+			<div class="table-responsive">
+			    <table class="table table-hover">
+			    	<thead>
+			    		<th>Titles</th>
+			    		<th>#</th>
+			    	</thead>
+			    	<tr>
+			    		<td>Full Name</td>
+			    		<td>{{order.customer_firstname}} {{order.customer_lastname}}</td>
+			    	</tr>
+			    	<tr>
+			    		<td>Country</td>
+			    		<td ng-bind="order.customer_country"></td>
+			    	</tr>
+			    	<tr>
+			    		<td>City/State</td>
+			    		<td ng-bind="order.customer_city"></td>
+			    	</tr>
+			    	<tr>
+			    		<td>Zip Code</td>
+			    		<td ng-bind="order.customer_zipcode"></td>
+			    	</tr>
+			    	<tr>
+			    		<td>Address</td>
+			    		<td ng-bind="order.customer_address"></td>
+			    	</tr>
+			    	<tr>
+			    		<td>Email Address</td>
+			    		<td ng-bind="order.customer_email_address"></td>
+			    	</tr>
+			    	<tr>
+			    		<td>Phone Number</td>
+			    		<td ng-bind="order.customer_phone_number"></td>
+			    	</tr>
+			    	<tr>
+			    		<td>Shipping Class</td>
+			    		<td ng-bind="order.customer_shipping_class"></td>
+			    	</tr>
+			    	<tr>
+			    		<td>Customer Note</td>
+			    		<td ng-bind="order.customer_note"></td>
+			    	</tr>
+			    </table>
+			</div>
+		  </div>
+		  <div title="Items" bs-pane>
+		  	<div class="page-header">
+			  <h1><small>Products Ordered</small></h1>
+			</div>
+			<div class="table-responsive" ng-repeat="item in items track by $index">
+			    <table class="table table-hover">
+			    	<thead>
+			    		<th>Name</th>
+			    		<th ng-bind="item.product_name"></th>
+			    	</thead>
+			    	<tr>
+			    		<td>Price</td>
+			    		<td>{{currency}}{{item.product_price}}</td>
+			    	</tr>
+			    	<tr>
+			    		<td>Quantity</td>
+			    		<td ng-bind="item.product_quantity"></td>
+			    	</tr>
+			    	<tr>
+			    		<td>Category</td>
+			    		<td ng-bind="item.product_category"></td>
+			    	</tr> 
+			    	<tr ng-repeat="spec in item.product_spec">
+			    		<td ng-bind="spec.title"></td>
+			    		<td ng-bind="spec.value"></td>
+			    	</tr>
+			    </table>
+			</div>
+		  </div>
+		</div>
+
+		
+	  
+	  </div>
+	</div>
+</div>

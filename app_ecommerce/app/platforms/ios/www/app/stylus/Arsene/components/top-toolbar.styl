@@ -1,0 +1,49 @@
+top-toolbar-bg-shared(){
+	border:none !important; 
+	.right .toolbar-button{
+		padding: 4px 10px 4px 0px;
+	}
+	ons-icon{
+		font-size: 32px; width: 1em;
+	}
+	.search-icon{
+		font-size: 26px; 
+	}
+}
+top-toolbar-bg-light(){
+	top-toolbar-bg-shared()
+	background-color: $light; 
+	color: $palette-beta-bg
+}
+top-toolbar-bg-light-transparent(){
+	top-toolbar-bg-shared()
+	background-color: transparent
+	color: $palette-beta-bg
+}
+top-toolbar-bg-dark(){
+	top-toolbar-bg-shared()
+	background-color: $palette-beta-bg
+	color: $light
+	
+}
+top-toolbar-bg-dark-transparent(){
+	top-toolbar-bg-shared()
+	color: $light
+	background-color: transparent
+}
+.top-toolbar-bg-light--transparent{
+	top-toolbar-bg-light-transparent()
+}
+.top-toolbar-bg-dark--transparent{
+	top-toolbar-bg-dark-transparent()
+}
+.top-toolbar-bg-light{
+	top-toolbar-bg-light()
+}
+.top-toolbar-bg-dark{
+	top-toolbar-bg-dark()
+}
+.active-cart{
+	ease-in-out-all()
+	color: $palette-beta-icon-select !important
+}

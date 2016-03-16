@@ -1,0 +1,24 @@
+.navigation{
+	top: 100px;
+}
+.list-group{
+	padding-left: 15px
+}
+.content-nav{
+	a{
+		font-size: 22px;
+		color: white;	
+	}
+	
+	.panel{
+		background-color: transparent;
+		border: none;
+		border-bottom: 1px solid rgba(255, 255, 255, 0.32);
+		.panel-body{
+			padding: 8px 15px;
+		}
+	}
+	.pull-right{
+		margin-top: 6px;
+	}
+}

@@ -1,0 +1,28 @@
+#kitchen-sink{
+	.page__background{
+		background-color: $light !important
+	}
+}
+.kitchen-sink-container{
+	width: 90%; 
+	margin: 0 auto;
+  	margin-top: 20px;
+  	.tab-bar{
+  		bottom: auto !important
+  		width: 90%; 
+  		margin: 0 auto;
+  	}
+   .glyphs li div{
+      width: 33%;
+      float: left;
+      font-size: 33px;
+      margin: 28px 0;
+      color: $palette-alpha-button-select
+      &:active{
+        color: darken($palette-alpha-button-select, 10)
+      }
+   } 
+   .glyphs{
+      list-style: none
+   }
+}
