@@ -10,26 +10,26 @@
   <ons-list-item class="list-item payment-box">
     <ons-row>
       <ons-col width="100%">
-        <h4>Your Details</h4>
-        <p class="sub-title remove-margin-bottom">Please enter your details</p>
+        <h4>Login</h4>
+        <p class="sub-title remove-margin-bottom">Please enter your id and password</p>
       </ons-col>
     </ons-row>
 
     <ons-row>
       <ons-col width="100%">
-        <input type="text" class="text-input col" placeholder="First name" ng-model="order.customer_firstname">
+        <input type="text" class="text-input col" placeholder="ID" ng-model="order.customer_firstname">
         <ons-icon ng-hide="validateOrder.customer_firstname" class="error-icon" icon="ion-asterisk">
       </ons-col>
     </ons-row>
     <ons-row>
       <ons-col width="100%">
-        <input type="text" class="text-input col" placeholder="Last name" ng-model="order.customer_lastname">
+        <input type="text" class="text-input col" placeholder="Password" ng-model="order.customer_lastname">
         <ons-icon ng-hide="validateOrder.customer_lastname" class="error-icon" icon="ion-asterisk">
       </ons-col>
     </ons-row>
     <ons-row class="checkout-row">
       <ons-col>
-        <span class="btn-default col" ng-click="payCash()">Place Your Order</span>
+        <span class="btn-default col" ng-click="payCash()">Login</span>
       </ons-col>
     </ons-row>
   </ons-list-item>
