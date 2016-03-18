@@ -36,12 +36,12 @@
         </ons-col>
       </ons-row>
 
-      <ons-row class="order-summary">
+      <!-- <ons-row class="order-summary">
         <ons-col>Tax: </ons-col>
         <ons-col class="float-right">
           {{calculateTax($index) | currency: currencyType}}
         </ons-col>
-      </ons-row>
+      </ons-row> -->
       <ons-row class="order-summary">
         <ons-col class="float-left">Subtotal:</ons-col>
         <ons-col class="float-right">{{getSubTotal($index) | currency: currencyType}}</ons-col>

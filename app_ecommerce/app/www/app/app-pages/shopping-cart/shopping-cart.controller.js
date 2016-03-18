@@ -12,7 +12,6 @@ angular.module('arseneAngularApp')
 	$scope.payment_types = []; 
 	$scope.order = {
 		code: UtilsSvc.createRandomCode(),
-		// code: 'F47412'
 		date_time: UtilsSvc.formatDate(new Date(), "dddd h:mmtt d MMM yyyy"),
 		customer_firstname: "",
 		customer_lastname: "",
